@@ -10,6 +10,11 @@ const server = express();
 middleware(server);
 
 //routes
+server.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Welcome to my API. Go to /api/projects to view projects"
+  });
+});
 server.use("/api/actions", actionRouter);
 server.use("/api/projects", projectRouter);
 
